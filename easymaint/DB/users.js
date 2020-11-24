@@ -169,11 +169,7 @@ export const updateUser = async (id,item) => {
   
   export const fetchUsers = async () => {
     const db = firebase.firestore();
-  
-
-     return db.collection(getUserCollection(collectionName)).get();
-
-  
+    return db.collection(getUserCollection(collectionName)).get();
   };
 
   export const fetchUserByEmail = async (id) => {
