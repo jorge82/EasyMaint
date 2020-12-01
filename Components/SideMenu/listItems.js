@@ -14,6 +14,7 @@ import MapIcon from '@material-ui/icons/Map';
 import PlanIcon from '@material-ui/icons/Schedule';
 import AreasIcon from '@material-ui/icons/Apartment';
 import MaintainerIcon from '@material-ui/icons/DirectionsWalk';
+import SignOutIcon from '@material-ui/icons/ExitToApp';
 
 import TaskIcon from '@material-ui/icons/Build';
 
@@ -93,6 +94,13 @@ const mainListItems = (
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
+    </ListItem>
+
+    <ListItem button onClick={() => handleClick("singout")}>
+      <ListItemIcon>
+        <SignOutIcon/>
+      </ListItemIcon>
+      <ListItemText primary="Sign out" />
     </ListItem>
   </div>
 );

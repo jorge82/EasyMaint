@@ -3,13 +3,13 @@ import React, {useState,useEffect } from 'react';
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import DashBoard from '../dashboard/Dashboard'
-import SignIn from './SignIn'
-import Pricing from './pricing'
-import SignUp from '../Components/SignUp/signUp';
+import SignIn from '../SignIn'
+import Pricing from '../pricing'
+import SignUp from '../../Components/SignUp/signUp';
 export default function Register() {
 
  
-
+  localStorage.setItem('isLogIn',false);
   
   return (  
     <div>

@@ -2,16 +2,16 @@ import firebase,{storage} from './firebase';
 
 
 const PARENTCOLLECIONNAME='businesses';
-const COLLECTIONNAME='users';
-const PICTURESFOLDER='profilePictures';
+const COLLECTIONNAME='task';
+const PICTURESFOLDER='taskPictures';
 
-export const saveUser = async ( id,item) => {
+export const saveTask = async (item) => {
     const db = firebase.firestore()
     const user=JSON.parse(localStorage.getItem('userData'));
-    const docRef = db.collection(PARENTCOLLECIONNAME).doc(user.bussinessID).collection(COLLECTIONNAME).doc(id);
+    const docRef = db.collection(PARENTCOLLECIONNAME).doc(user.bussinessID).collection(COLLECTIONNAME);
 
     // Not awaiting intentionally
-    const updateTimestamp = docRef.set({
+    const updateTimestamp = docRef.add({
         ...item,
         date_modified: new Date()
     });
@@ -19,7 +19,7 @@ export const saveUser = async ( id,item) => {
     return docRef.id;
 }
 
-export const deleteProfilePicture = (id) => {
+export const deleteTaskPicture = (id) => {
 
   var desertRef = storage.ref().child(PICTURESFOLDER).child(id);
 
@@ -34,7 +34,7 @@ export const deleteProfilePicture = (id) => {
 }
 
 
-export const updateUser = async (id,item) => {
+export const updateTask = async (id,item) => {
     const user=JSON.parse(localStorage.getItem('userData'));
     const db = firebase.firestore();
     const docRef = db.collection(PARENTCOLLECIONNAME).doc(user.bussinessID).collection(COLLECTIONNAME).doc(id);
@@ -51,7 +51,7 @@ export const updateUser = async (id,item) => {
 
 
   
-  export const fetchUsers = async () => {
+  export const fetchTasks = async () => {
 
     const user=JSON.parse(localStorage.getItem('userData'));
     const db = firebase.firestore();
@@ -61,7 +61,7 @@ export const updateUser = async (id,item) => {
 
   };
 
-  export const fetchUserByEmail = async (id) => {
+  export const fetchTaskByID = async (id) => {
     const user=JSON.parse(localStorage.getItem('userData'));
     const db = firebase.firestore();
     const docRef = db.collection(PARENTCOLLECIONNAME).doc(user.bussinessID).collection(COLLECTIONNAME).doc(id).get();
@@ -69,11 +69,11 @@ export const updateUser = async (id,item) => {
 
   };
 
-  export const deleteUser = async (id) => {
+  export const deleteTask = async (id) => {
     const user=JSON.parse(localStorage.getItem('userData'));
     const db = firebase.firestore();
     //delete de picture from storage
-    deleteProfilePicture(id);
+    deleteTaskPicture(id);
 
     const docRef = await db.collection(PARENTCOLLECIONNAME).doc(user.bussinessID).collection(COLLECTIONNAME).doc(id).delete();
     return docRef;

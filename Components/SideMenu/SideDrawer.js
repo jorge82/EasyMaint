@@ -27,13 +27,14 @@ import Plan from '../Plan/Plan';
 import Reports  from '../Reports/Reports';
 import Equipment from '../Equipment/Equipment';
 import Areas from '../Areas/Areas';
-
+import { useRouter  } from 'next/router';
 
 
 
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+
 
 
 
@@ -139,7 +140,7 @@ export default function SideDrawer() {
   const [item, setItem] = React.useState(<DashBoard/>);
   const [title, setTitle] = React.useState("Dashboard");
 
-  
+  const router = useRouter()
 
   const handleContent =(item)=>{
 
@@ -178,6 +179,9 @@ export default function SideDrawer() {
                         break;
       case "heatmap":   setItem(<HeatMap/>)
                         setTitle("Heatmap");
+                        console.log("item to render ", item);
+                        break;
+      case "singout":   router.push('/SignIn');
                         console.log("item to render ", item);
                         break;
 

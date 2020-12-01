@@ -101,7 +101,7 @@ export default function SignIn() {
       const userData= await fetchUserByEmail(email)
         
         
-          localStorage.setItem('userData',userData);
+          localStorage.setItem('userData',JSON.stringify(userData));
           localStorage.setItem('isLogIn',true);
           console.log("user:", userData)
           const bussinesData= await getBussinessData(userData.bussinessID)

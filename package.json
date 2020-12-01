@@ -13,6 +13,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "firebase": "^7.24.0",
     "firebase-admin": "^9.3.0",
+    "google-map-react": "^2.1.9",
     "next": "9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",

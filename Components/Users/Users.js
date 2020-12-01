@@ -25,15 +25,15 @@ export default function Users() {
     await fetchUsers().then(querySnapshot => {
         querySnapshot.forEach(function(doc) {
             users.push({
-                name: doc.data().name,
+                name: doc.data().firstName,
                 lastName:  doc.data().lastName,
-                email: doc.data().email,
+                email: doc.id,
                 password: doc.data().password,
                 position: doc.data().position
 
             })  
     })
-      console.log("users:", users);
+      console.log("fetching users:", users);
       setData(users); 
     })
     
@@ -93,7 +93,7 @@ export default function Users() {
             </Grid>
             <Grid item xs={12}  >
             
-                <Table headCells={headCells} values={data} orderBy='lastName' title='Users'
+                <Table headCells={headCells} values={data} orderBy='email' title='Users'
                       addEditButton={true}  handleEdit={handleEdit}
                       addDeleteButton={true}  handleDelete={handleDelete}></Table>
 
