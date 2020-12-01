@@ -18,7 +18,7 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 
 import ListItems from './listItems';
-import DashBoard from '../DashBoard/Dashboard';
+import DashBoard from '../Dashboard/Dashboard';
 import Users from  '../Users/Users';
 import Tasks from '../Tasks/Tasks';
 import Mainteiners from '../Maintainers/Maintainers';
