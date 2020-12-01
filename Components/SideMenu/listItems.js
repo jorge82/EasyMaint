@@ -30,7 +30,6 @@ export default function ListItems({handleClick}){
   
   }
 
-
 const mainListItems = (
 
 
