@@ -4,9 +4,16 @@ import styles from '../styles/Home.module.css'
 import Home from './home'
 import SignIn from './SignIn'
 import Pricing from './pricing'
+
+import Grid from '@material-ui/core/Grid';
+import {useRouter} from 'next/router';
+
+
 export default function index() {
 
+
   const [isLogIn, setLogIn]= useState(false);
+  const router = useRouter()
 
   useEffect(()=>{
     var logedIn= localStorage.getItem('isLogIn') 
@@ -17,12 +24,36 @@ export default function index() {
   },[isLogIn])
 
 
-  
+  //  if(!isLogIn) {
+  //    router.push('/SingIn');
+  //  } 
   return (  
-    <div>
-    {/* { !isLogIn && <Pricing></Pricing>} */}
-     { !isLogIn && (<SignIn></SignIn>)} 
+
+    
+  <div> 
+  <Grid
+  container
+  spacing={0}
+  direction="column"
+  alignItems="center"
+  justify="center"
+  style={{ minHeight: '100vh' }}
+>
+
+  <Grid item xs={3}>
+  
+  { !isLogIn && <SignIn></SignIn>}
+    
     { isLogIn && (<Home></Home>)}
-    </div>
+    </Grid>   
+
+</Grid> 
+</div>
+
+   
+    
+
+    
+
   )
 }

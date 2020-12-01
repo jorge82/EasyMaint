@@ -153,7 +153,7 @@ export default function SignIn() {
   }
   const handleRegister = ()=>{
     
-    router.push('/signUp')
+    router.push('/signUp/signUp')
   }
 
   const handleChange=(event)=>{
