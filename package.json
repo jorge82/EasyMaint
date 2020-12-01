@@ -14,7 +14,7 @@
     "firebase": "^7.24.0",
     "firebase-admin": "^9.3.0",
     "google-map-react": "^2.1.9",
-    "next": "9.5.5",
+    "next": "^10.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "recharts": "^1.8.5"
